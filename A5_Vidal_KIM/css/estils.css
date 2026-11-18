@@ -1,0 +1,171 @@
+:root {
+  --nit: #14263a;
+  --gel: #7fc4e8;
+  --neu: #f4f8fb;
+  --blau: #1d4e7a;
+  --ombra: 0 10px 30px rgba(20, 38, 58, 0.15);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--nit);
+  background: linear-gradient(180deg, #65edf1 5%, var(--neu) 18rem);
+  background-repeat: no-repeat;
+  background-color: var(--neu);
+}
+
+#rellotge {
+  position: fixed;
+  top: 0.9rem;
+  right: 1rem;
+  z-index: 50;
+  background: #3bbbf7;
+  color: var(--nit);
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 8px 24px rgba(20, 38, 58, 0.25);
+  animation: flota 6s ease-in-out infinite;
+}
+#rellotge::before,
+#rellotge::after {
+  content: "";
+  position: absolute;
+  background: #1383df;
+  border-radius: 50%;
+  z-index: -1;
+}
+#rellotge::before { width: 1.5rem; height: 1.5rem; top: -0.65rem; left: 0.8rem; }
+#rellotge::after { width: 2rem; height: 2rem; top: -0.9rem; left: 2.2rem; }
+@keyframes flota {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #rellotge { animation: none; }
+}
+
+/* Capçalera */
+header {
+  background: linear-gradient(135deg, var(--nit), var(--blau));
+  color: var(--neu);
+  padding: 2.5rem 1.5rem 1.5rem;
+  border-radius: 0 0 2.5rem 2.5rem;
+  box-shadow: var(--ombra);
+}
+header.hero {
+  background: linear-gradient(180deg, rgba(20, 38, 58, 0.35), rgba(20, 38, 58, 0.85)), url("../img/gran4.png") center / cover;
+  padding-top: 6rem;
+}
+header h1 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+header p { margin: 0 0 1.25rem; max-width: 34rem; opacity: 0.9; }
+nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+nav a {
+  color: var(--neu);
+  text-decoration: none;
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 248, 251, 0.4);
+  transition: background 0.2s, color 0.2s;
+}
+nav a:hover, nav a:focus-visible, nav a.actiu {
+  background: var(--neu);
+  color: var(--nit);
+}
+
+/* Contingut */
+main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
+main h2 { font-size: 1.9rem; margin: 0 0 0.5rem; }
+.seccio {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+  cursor: pointer;
+  box-shadow: var(--ombra);
+  transition: background 0.25s, color 0.25s;
+}
+.seccio h3 { margin: 0; font-size: 1.25rem; }
+.amagat { display: none; margin: 0.6rem 0 0; }
+
+/* Galeria */
+.galeria { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.5rem 0; padding: 0; }
+.galeria img {
+  width: 10.5rem;
+  height: auto;
+  border-radius: 1rem;
+  border: 3px solid transparent;
+  cursor: pointer;
+  display: block;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.galeria img:hover { border-color: var(--gel); transform: scale(1.04); }
+#gran {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 1.75rem;
+  box-shadow: var(--ombra);
+  display: block;
+}
+
+/* Formulari */
+form {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 30rem;
+  background: #46b2dd;
+  padding: 1.75rem;
+  border-radius: 1.75rem;
+  box-shadow: var(--ombra);
+}
+.parella { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.camp { display: grid; gap: 0.3rem; }
+label { font-weight: 600; font-size: 0.9rem; }
+input {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid #d5e3ee;
+  border-radius: 0.9rem;
+  background: var(--neu);
+  min-width: 0;
+}
+input:focus { outline: none; border-color: var(--blau); background: #fff; }
+button {
+  background: linear-gradient(135deg, var(--blau), #3a86c4);
+  color: #fff;
+  border: 0;
+  padding: 0.85rem 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+button:hover, button:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(29, 78, 122, 0.4); }
+
+footer {
+  background: var(--nit);
+  color: var(--neu);
+  text-align: center;
+  padding: 1.25rem;
+  border-radius: 2.5rem 2.5rem 0 0;
+}
+footer p { margin: 0; }
+
+@media (max-width: 40rem) {
+  header.hero { padding-top: 5rem; }
+  .galeria img { width: calc(50% - 0.5rem); }
+  .parella { grid-template-columns: 1fr; }
+}

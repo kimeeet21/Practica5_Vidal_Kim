@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Kim" content="Vidal Gali">
+  <title>Galeria de paisatges d'esquí</title>
+  <meta name="description" content="Galeria d'imatges amb paisatges i moments de l'esquí alpí.">
+  <meta name="keywords" content="galeria, esquí, neu, paisatges, imatges">
+  <link rel="stylesheet" href="css/estils.css">
+  <script src="components/rellotge.js" defer></script>
+</head>
+<body>
+  <div id="rellotge" title="Temps a la pàgina">00:00:00</div>
+  <header>
+    <h1>Galeria</h1>
+    <p>Paisatges i moments des de la pista.</p>
+    <nav>
+      <a href="index.html">Inici</a>
+      <a href="galeria.html" class="actiu">Galeria</a>
+      <a href="contacte.html">Contacte</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Les nostres fotos</h2>
+    <p>Fes clic en una miniatura per veure la imatge en mida gran.</p>
+    <div class="galeria">
+      <img src="img/mini1.png" alt="Esquiador al cim" onclick="mostra(1, 'Esquiador al cim')">
+      <img src="img/mini2.png" alt="Telecadira" onclick="mostra(2, 'Telecadira')">
+      <img src="img/mini3.png" alt="Cim nevat" onclick="mostra(3, 'Cim nevat')">
+      <img src="img/mini4.png" alt="Vall i muntanyes" onclick="mostra(4, 'Vall i muntanyes')">
+      <img src="img/mini5.png" alt="Casc i ulleres a la telecadira" onclick="mostra(5, 'Casc i ulleres a la telecadira')">
+      <img src="img/mini6.png" alt="Sol entre núvols" onclick="mostra(6, 'Sol entre núvols')">
+    </div>
+    <img id="gran" src="img/gran1.png" alt="Esquiador al cim">
+  </main>
+  <footer><p>Pràctica A5 de Llenguatges de marques</p></footer>
+  <script>
+    // Exercici 1 (codi al body): carrega la imatge gran
+    function mostra(numero, descripcio) {
+      var gran = document.getElementById("gran");
+      gran.src = "img/gran" + numero + ".png";
+      gran.alt = descripcio;
+    }
+  </script>
+</body>
+</html>
